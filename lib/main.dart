@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
           title: "Trading App",
           debugShowCheckedModeBanner: false,
           getPages: AppRoutes.appRoutes,
-          initialRoute: AppRoutes.explore,
+          initialRoute: AppRoutes.splash,
         );
       }),
     );

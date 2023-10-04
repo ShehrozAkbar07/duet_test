@@ -1,232 +1,232 @@
-import 'package:duettest/Const/color.dart';
 import 'package:duettest/Const/const.dart';
 import 'package:duettest/View/constants.dart';
 import 'package:duettest/View/data.dart';
 import 'package:duettest/View/detail.dart';
 import 'package:duettest/View/shared.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Explore extends StatefulWidget {
+class HomeScreen extends StatefulWidget {
   @override
-  _ExploreState createState() => _ExploreState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _ExploreState extends State<Explore> {
+class _HomeScreenState extends State<HomeScreen> {
   TextEditingController controller = TextEditingController();
   List<bool> optionSelected = [true, false, false];
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.grey[50],
-      // appBar: AppBar(
-      //   backgroundColor: Colors.transparent,
-      //   elevation: 0,
-      //   leading: Icon(
-      //     Icons.sort,
-      //     color: Colors.black,
-      //   ),
-      //   actions: [
-      //     Padding(
-      //       padding: EdgeInsets.only(right: 16),
-      //       child: Icon(
-      //         Icons.search,
-      //         color: Colors.black,
-      //       ),
-      //     ),
-      //   ],
-      //   systemOverlayStyle: SystemUiOverlayStyle.dark,
-      // ),
-      body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: 30.h,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: padding),
-              child: const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Icon(
-                    Icons.sort,
-                    size: 29,
-                    color: Colors.black,
-                  ),
-                  Icon(
-                    Icons.notifications_outlined,
-                    size: 29,
-                    color: Colors.black,
-                  ),
-                ],
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.grey[50],
+        // appBar: AppBar(
+        //   backgroundColor: Colors.transparent,
+        //   elevation: 0,
+        //   leading: Icon(
+        //     Icons.sort,
+        //     color: Colors.black,
+        //   ),
+        //   actions: [
+        //     Padding(
+        //       padding: EdgeInsets.only(right: 16),
+        //       child: Icon(
+        //         Icons.search,
+        //         color: Colors.black,
+        //       ),
+        //     ),
+        //   ],
+        //   systemOverlayStyle: SystemUiOverlayStyle.dark,
+        // ),
+        body: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 30.h,
               ),
-            ),
-            SizedBox(
-              height: 20.h,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: padding),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SizedBox(
-                    height: 60.h,
-                    width: 270.w,
-                    child: TextFormField(
-                      style: const TextStyle(
-                        color: Color.fromARGB(255, 176, 176, 176),
-                      ),
-                      controller: controller,
-                      decoration: InputDecoration(
-                        fillColor: Color(0xfff2f2f2),
-
-                        contentPadding: const EdgeInsets.symmetric(
-                            vertical: 7, horizontal: 16),
-                        // fillColor: const Color(AppColors.fillColor),
-                        filled: true,
-
-                        prefixIcon: const Icon(
-                          Icons.search_outlined,
-                          color: Colors.grey,
-                        ),
-
-                        // maxLines: maxlines,
-
-                        hintText: "Search",
-                        hintStyle: const TextStyle(
-                          color: Color.fromARGB(255, 176, 176, 176),
-                        ),
-                        // suffixIcon: widget.suffixIcon,
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: const Color(0xffFFFFFF).withOpacity(0.3),
-                              width: 2.0),
-                          borderRadius: BorderRadius.circular(12.0),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                              color: Color(0xfff2f2f2), width: 1.0),
-                          borderRadius: BorderRadius.circular(12.0),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                              color: Color(0xfff2f2f2), width: 1.0),
-                          borderRadius: BorderRadius.circular(12.0),
-                        ),
-                      ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: padding),
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Icon(
+                      Icons.sort,
+                      size: 29,
+                      color: Colors.black,
                     ),
-                  ),
-                  Container(
-                    height: 45.h,
-                    width: 70.w,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(14),
-                      color: Color(0xfff2f2f2),
+                    Icon(
+                      Icons.notifications_outlined,
+                      size: 29,
+                      color: Colors.black,
                     ),
-                    child: const Center(
-                      child: Icon(
-                        Icons.filter_alt_outlined,
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 20.h,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: padding),
-              child: Text(
-                'Shehroz Abkar',
-                style: TextStyle(color: Colors.grey, fontSize: 18.sp),
-              ),
-            ),
-            SizedBox(
-              height: 20.h,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: padding),
-              child: Text(
-                'What would you like to cook Today?',
-                style: GoogleFonts.breeSerif(
-                  fontSize: 25.sp,
-                  fontWeight: FontWeight.w900,
-                  color: Colors.black,
+                  ],
                 ),
               ),
-            ),
-            SizedBox(
-              height: 20.h,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // buildTextTitleVariation1('Springy Salads'),
-                  // buildTextSubTitleVariation1(
-                  //     'Healthy and nutritious food recipes'),
-                  SizedBox(
-                    height: 32,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      option('Vegetable', 'assets/icons/salad.png', 0),
-                      SizedBox(
-                        width: 8,
+              SizedBox(
+                height: 20.h,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: padding),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      height: 60.h,
+                      width: 260.w,
+                      child: TextFormField(
+                        style: const TextStyle(
+                          color: Color.fromARGB(255, 176, 176, 176),
+                        ),
+                        controller: controller,
+                        decoration: InputDecoration(
+                          fillColor: Color(0xfff2f2f2),
+
+                          contentPadding: const EdgeInsets.symmetric(
+                              vertical: 7, horizontal: 16),
+                          // fillColor: const Color(AppColors.fillColor),
+                          filled: true,
+
+                          prefixIcon: const Icon(
+                            Icons.search_outlined,
+                            color: Colors.grey,
+                          ),
+
+                          // maxLines: maxlines,
+
+                          hintText: "Search",
+                          hintStyle: const TextStyle(
+                            color: Color.fromARGB(255, 176, 176, 176),
+                          ),
+                          // suffixIcon: widget.suffixIcon,
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide(
+                                color: const Color(0xffFFFFFF).withOpacity(0.3),
+                                width: 2.0),
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Color(0xfff2f2f2), width: 1.0),
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Color(0xfff2f2f2), width: 1.0),
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                        ),
                       ),
-                      option('Rice', 'assets/icons/rice.png', 1),
-                      SizedBox(
-                        width: 8,
+                    ),
+                    Container(
+                      height: 50.h,
+                      width: 60.w,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        color: Color(0xfff2f2f2),
                       ),
-                      option('Fruit', 'assets/icons/fruit.png', 2),
-                    ],
+                      child: const Center(
+                        child: Icon(
+                          Icons.filter_alt_outlined,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 20.h,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: padding),
+                child: Text(
+                  'Shehroz Abkar',
+                  style: TextStyle(color: Colors.grey, fontSize: 18.sp),
+                ),
+              ),
+              SizedBox(
+                height: 20.h,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: padding),
+                child: Text(
+                  'What would you like to cook Today?',
+                  style: GoogleFonts.breeSerif(
+                    fontSize: 25.sp,
+                    fontWeight: FontWeight.w900,
+                    color: Colors.black,
                   ),
-                ],
+                ),
               ),
-            ),
-            SizedBox(
-              height: 24,
-            ),
-            Container(
-              height: 350,
-              child: ListView(
-                physics: BouncingScrollPhysics(),
-                scrollDirection: Axis.horizontal,
-                children: buildRecipes(),
+              SizedBox(
+                height: 20.h,
               ),
-            ),
-            SizedBox(
-              height: 16,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: Row(
-                children: [
-                  buildTextTitleVariation2('Popular', false),
-                  SizedBox(
-                    width: 8,
-                  ),
-                  buildTextTitleVariation2('Food', true),
-                ],
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // buildTextTitleVariation1('Springy Salads'),
+                    // buildTextSubTitleVariation1(
+                    //     'Healthy and nutritious food recipes'),
+                    SizedBox(
+                      height: 32,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        option('Vegetable', 'assets/icons/salad.png', 0),
+                        SizedBox(
+                          width: 8,
+                        ),
+                        option('Rice', 'assets/icons/rice.png', 1),
+                        SizedBox(
+                          width: 8,
+                        ),
+                        option('Fruit', 'assets/icons/fruit.png', 2),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-            ),
-            Container(
-              height: 190,
-              child: PageView(
-                physics: BouncingScrollPhysics(),
-                children: buildPopulars(),
+              SizedBox(
+                height: 24,
               ),
-            ),
-          ],
+              Container(
+                height: 350,
+                child: ListView(
+                  physics: BouncingScrollPhysics(),
+                  scrollDirection: Axis.horizontal,
+                  children: buildRecipes(),
+                ),
+              ),
+              SizedBox(
+                height: 16,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                child: Row(
+                  children: [
+                    buildTextTitleVariation2('Popular', false),
+                    SizedBox(
+                      width: 8,
+                    ),
+                    buildTextTitleVariation2('Food', true),
+                  ],
+                ),
+              ),
+              Container(
+                height: 190,
+                child: PageView(
+                  physics: BouncingScrollPhysics(),
+                  children: buildPopulars(),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
